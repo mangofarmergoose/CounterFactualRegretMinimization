@@ -8,7 +8,7 @@ Below are some foundations for Game Theory.
 
 **A Game $G$ in the strategic form consists of**
 1. A set $N=\\{1, 2,\dots, n\\}$ players
-2. For each player $i$, $S^i = \\{s^i_1, s^i_2, \dots, s^i_{m^i}\\}$ strategies of i
+2. For each player $i$, $S^i = \\{s^i_1, s^i_2, \dots, s^i_{m^i}\\}$ strategies of $i$
 3. For each player, a payoff function $h^i: \prod_{i \in N} S^i \rightarrow \mathbb{R}$ is given by $h^i(j^1, \ldots, j^k, \ldots, j^n)$, where $j^k \in S^k$ is the pure strategy chosen by player $k$.
 -----
 **The <b>mixed extension</b> of G**
