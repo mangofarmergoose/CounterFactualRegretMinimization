@@ -1,4 +1,4 @@
-# CounterFactualRegretMinimization
+# RegretMatching
 
 The paper for regret-matching and Counter Factual Regret Minimzation can be found <a href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">here</a>.
 <br>
