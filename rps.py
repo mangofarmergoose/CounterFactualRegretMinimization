@@ -77,18 +77,6 @@ def updateRegretSum(myStrat, oppStrat, iter):
 
         regretSum += actionPayoff
 
-def getAverageStrategy():
-    global strategySum
-    normalizingSum = np.sum(strategySum)
-
-    if normalizingSum > 0:
-        avgStrategy = strategySum / normalizingSum
-    else:
-        avgStrategy = np.ones(NUM_ACTIONS)/NUM_ACTIONS
-
-    return avgStrategy
-        
-
 def main():
 
     myStrat = getStrategy() # Use default mixed strat (1/3, 1/3, 1/3)
@@ -98,7 +86,7 @@ def main():
     updateRegretSum(myStrat, oppStrategy, 100000) # Modify global variable regretSum
     
     myNewStrat = getStrategy()
-    print("Using regret matched mixed strategy after training: ", myNewStrat)
+    print("Using Regret matched mixed strategy after training: ", myNewStrat)
     print(getStrategyPayoff(myNewStrat, oppStrategy, 100, 100))
 
 main()
