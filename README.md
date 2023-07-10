@@ -39,7 +39,7 @@ Note that $e^i_j = (\underset{j}{\underbrace{0, 0, \ldots, 0, 1}}, 0, \ldots, 0)
 $H^i(p\mid e^i_j)$ refers to the following.
 $$H^i(p\mid e^i_j) = \sum_{j^1=1}^{m^1} \cdots \sum_{j^1=1}^{m^i} \cdots \sum_{j^n=1}^{m^n} [p^1_{j^1} \cdots e^i_{j} \cdots p^n_{j^n} h^i(j^1, \ldots, j^k, \ldots, j^n)]$$
 
-We state this theorem without proof. (I don't really want to type it out in Readme)
+We state this theorem without proof. (I don't really want to type it out in LaTeX)
 
 -----
 **Apply Fundamental Theorem of Mixed Strategy Nash Equilibrium to RPS**
