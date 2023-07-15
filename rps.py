@@ -1,23 +1,8 @@
 import numpy as np
 import random
 
-''' 
-Setting of mixed extension of Nash Equilibrium
-1.  Set N = {1, 2, · · · , n} of players 
-2.  For each player i, a set P_i of all mixed strategies of player i
-3.  For each player, a payoff function Hi : ∏i∈N P_i → R, where each Hi
-is a linear combination of his with coefficients equal to product of the
-corresponding probabilities
-
-'''
-
 # Declare Variables
 ROCK, PAPER, SCISSORS, NUM_ACTIONS = 0, 1, 2, 3 
-strategy = np.zeros(NUM_ACTIONS)
-strategySum = np.zeros(NUM_ACTIONS)
-regretSum = np.zeros(NUM_ACTIONS)
-# Opponent uses the mixed strat (R, S, P) = (0.4, 0.3, 0.3)
-oppStrategy = np.array([0.4, 0.3, 0.3])
 
 def getValue(p1, p2):
     if p1 == p2:
@@ -32,15 +17,16 @@ def getValue(p1, p2):
         return -1
 
 # accmulate in stratSum
-def getStrategy():
-    global regretSum, strategySum
+def getStrategy(regretSum):
+    
     strategy = np.maximum(regretSum, 0)
     normalizingSum = np.sum(strategy)
+
     if normalizingSum > 0:
         strategy /= normalizingSum
     else:
         strategy = np.ones(NUM_ACTIONS)/NUM_ACTIONS
-    strategySum += strategy
+    
     return strategy
 
 def getAction(strategy):
@@ -62,9 +48,8 @@ def getStrategyPayoff(myStrat, oppStrat, iter1, iter2):
 
     return np.mean(vvv)
 
-def updateRegretSum(myStrat, oppStrat, iter):
+def updateRegretSum(myStrat, oppStrat, regretSum, iter):
     # To train the algorithm and modify the regretSum array
-    global regretSum
     actionPayoff = np.zeros(NUM_ACTIONS)
     for i in range(iter):
         
@@ -77,16 +62,23 @@ def updateRegretSum(myStrat, oppStrat, iter):
 
         regretSum += actionPayoff
 
+    return regretSum
+
 def main():
-
-    myStrat = getStrategy() # Use default mixed strat (1/3, 1/3, 1/3)
-    print("Using default mixed strategy (1/3, 1/3, 1/3)")
-    print(getStrategyPayoff(myStrat, oppStrategy, 100, 100))
-
-    updateRegretSum(myStrat, oppStrategy, 100000) # Modify global variable regretSum
+    # Opponent uses the mixed strat (R, S, P) = (0.4, 0.3, 0.3)
+    oppDefStrategy = np.array([0.4, 0.3, 0.3])
+    strategy = np.zeros(NUM_ACTIONS)
+    regretSum = np.zeros(NUM_ACTIONS)
     
-    myNewStrat = getStrategy()
+    myStrat = getStrategy(regretSum) # Use default mixed strat (1/3, 1/3, 1/3)
+
+    print("Using default mixed strategy (1/3, 1/3, 1/3)")
+    print(getStrategyPayoff(myStrat, oppDefStrategy, 100, 100))
+
+    regretSum =  updateRegretSum(myStrat, oppDefStrategy, regretSum ,100000) # Modify global variable regretSum
+    myNewStrat = getStrategy(regretSum)
+
     print("Using Regret matched mixed strategy after training: ", myNewStrat)
-    print(getStrategyPayoff(myNewStrat, oppStrategy, 100, 100))
+    print(getStrategyPayoff(myNewStrat, oppDefStrategy, 100, 100))
 
 main()
