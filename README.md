@@ -1,6 +1,6 @@
 # RegretMatching
 
-The paper for regret-matching and Counter Factual Regret Minimzation can be found <a href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">here</a>.
+The paper for Regret Matching and Counter Factual Regret Minimzation can be found <a href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">here</a>.
 <br>
 Below are some foundations for Game Theory. Inspired by the course MATH3911 - Game Theory and Strategy @ HKU.
 
