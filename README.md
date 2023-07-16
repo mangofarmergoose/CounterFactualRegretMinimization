@@ -52,7 +52,7 @@ $$H^2((1/3, 1/3, 1/3), (1, 0, 0)) = H^2((1/3, 1/3, 1/3), (0, 1, 0)) = H^2((1/3, 
 We have shown that $p = ((1/3, 1/3, 1/3), (1/3, 1/3, 1/3))$ is a mixed Nash equilibrium.
 
 -----
-**Key Questions**
+**Answering 2 Key Questions**
 1. What will be the best response of player 1 if player 2 deviates from the mixed Nash Equilibrium $(1/3, 1/3, 1/3)$?
 2. If both players use the regret matching method, will the equilibrium converge to the mixed Nash Equilibrium?
 
